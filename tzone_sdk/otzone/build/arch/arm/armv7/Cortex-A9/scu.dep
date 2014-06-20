@@ -1,0 +1,13 @@
+/home/shenchun/github/mx6q-collage-openvirtualization/tzone_sdk/otzone/build/arch/arm/armv7/Cortex-A9/scu.o: \
+ /home/shenchun/github/mx6q-collage-openvirtualization/tzone_sdk/otzone/src/arch/arm/armv7/Cortex-A9/scu.c \
+ /home/shenchun/github/mx6q-collage-openvirtualization/tzone_sdk/otzone/src/lib/include/sw_io.h \
+ /home/shenchun/github/mx6q-collage-openvirtualization/tzone_sdk/otzone/src/lib/include/sw_types.h \
+ /home/shenchun/github/mx6q-collage-openvirtualization/tzone_sdk/include/sw_common_types.h \
+ /home/shenchun/github/mx6q-collage-openvirtualization/tzone_sdk/include/sw_config.h \
+ /home/shenchun/github/mx6q-collage-openvirtualization/tzone_sdk/otzone/src/arch/arm/armv7/include/cpu_io.h \
+ /home/shenchun/github/mx6q-collage-openvirtualization/tzone_sdk/otzone/src/drivers/imx6/include/sw_board.h \
+ /home/shenchun/github/mx6q-collage-openvirtualization/tzone_sdk/otzone/src/drivers/imx6/include/sw_board_asm.h \
+ /home/shenchun/github/mx6q-collage-openvirtualization/tzone_sdk/otzone/src/drivers/common/include/gic.h \
+ /home/shenchun/github/mx6q-collage-openvirtualization/tzone_sdk/otzone/src/arch/arm/armv7/include/system_context.h \
+ /home/shenchun/github/mx6q-collage-openvirtualization/tzone_sdk/otzone/src/arch/arm/armv7/include/cpu.h \
+ /home/shenchun/github/mx6q-collage-openvirtualization/tzone_sdk/otzone/src/lib/include/sw_debug.h

@@ -1,0 +1,16 @@
+/home/shenchun/github/mx6q-collage-openvirtualization/tzone_sdk/otzone/build/core/sw_modinit.o: \
+ /home/shenchun/github/mx6q-collage-openvirtualization/tzone_sdk/otzone/src/core/sw_modinit.c \
+ /home/shenchun/github/mx6q-collage-openvirtualization/tzone_sdk/otzone/src/lib/include/sw_types.h \
+ /home/shenchun/github/mx6q-collage-openvirtualization/tzone_sdk/include/sw_common_types.h \
+ /home/shenchun/github/mx6q-collage-openvirtualization/tzone_sdk/include/sw_config.h \
+ /home/shenchun/github/mx6q-collage-openvirtualization/tzone_sdk/otzone/src/arch/arm/armv7/include/cpu_data.h \
+ /home/shenchun/github/mx6q-collage-openvirtualization/tzone_sdk/otzone/src/arch/arm/armv7/include/page_table.h \
+ /home/shenchun/github/mx6q-collage-openvirtualization/tzone_sdk/include/sw_list.h \
+ /home/shenchun/github/mx6q-collage-openvirtualization/tzone_sdk/otzone/src/arch/arm/armv7/include/cpu_asm.h \
+ /home/shenchun/github/mx6q-collage-openvirtualization/tzone_sdk/include/smc_id.h \
+ /home/shenchun/github/mx6q-collage-openvirtualization/tzone_sdk/otzone/src/drivers/imx6/include/sw_board.h \
+ /home/shenchun/github/mx6q-collage-openvirtualization/tzone_sdk/otzone/src/drivers/imx6/include/sw_board_asm.h \
+ /home/shenchun/github/mx6q-collage-openvirtualization/tzone_sdk/otzone/src/arch/arm/armv7/include/sw_mcore.h \
+ /home/shenchun/github/mx6q-collage-openvirtualization/tzone_sdk/otzone/src/core/include/sw_modinit.h \
+ /home/shenchun/github/mx6q-collage-openvirtualization/tzone_sdk/otzone/src/arch/arm/armv7/include/sw_syscall.h \
+ /home/shenchun/github/mx6q-collage-openvirtualization/tzone_sdk/otzone/src/drivers/common/include/uart.h

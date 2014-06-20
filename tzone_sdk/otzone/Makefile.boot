@@ -32,6 +32,9 @@ export DEPENDENCY_FILE=$(build_dir)/.deps
 ifeq ($(BOARD), VE)
 export CONFIG_FILE= $(cur_dir)/config/config.ve
 export BOARD_DIR=ve
+else ifeq ($(BOARD), imx6)
+export CONFIG_FILE= $(cur_dir)/config/config.imx6
+export BOARD_DIR=imx6
 else ifeq ($(BOARD), s5pv310)
 export CONFIG_FILE= $(cur_dir)/config/config.s5pv310
 export BOARD_DIR=exynos4

@@ -8,6 +8,7 @@ lib_dir=$(SDK_PATH)/lib
 build_dir=$(cur_dir)/build
 src_dir=$(cur_dir)
 
+
 # Check if verbosity is ON for build process
 VERBOSE_DEFAULT    := 0
 CMD_PREFIX_DEFAULT := @

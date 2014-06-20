@@ -1,0 +1,8 @@
+/home/shenchun/github/mx6q-collage-openvirtualization/tzone_sdk/otzone/build/arch/arm/armv7/monitor.o: \
+ /home/shenchun/github/mx6q-collage-openvirtualization/tzone_sdk/otzone/src/arch/arm/armv7/monitor.S \
+ /home/shenchun/github/mx6q-collage-openvirtualization/tzone_sdk/otzone/src/arch/arm/armv7/include/cpu_asm.h \
+ /home/shenchun/github/mx6q-collage-openvirtualization/tzone_sdk/include/smc_id.h \
+ /home/shenchun/github/mx6q-collage-openvirtualization/tzone_sdk/otzone/src/arch/arm/armv7/include/asm_macros.h \
+ /home/shenchun/github/mx6q-collage-openvirtualization/tzone_sdk/otzone/src/arch/arm/armv7/Cortex-A9/include/sw_platform_asm.h \
+ /home/shenchun/github/mx6q-collage-openvirtualization/tzone_sdk/otzone/src/drivers/imx6/include/sw_board_asm.h \
+ /home/shenchun/github/mx6q-collage-openvirtualization/tzone_sdk/include/sw_config.h

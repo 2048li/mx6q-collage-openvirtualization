@@ -1,0 +1,35 @@
+/home/shenchun/github/mx6q-collage-openvirtualization/tzone_sdk/otzone/build/apps/echo_task.o: \
+ /home/shenchun/github/mx6q-collage-openvirtualization/tzone_sdk/otzone/src/apps/echo_task.c \
+ /home/shenchun/github/mx6q-collage-openvirtualization/tzone_sdk/otzone/src/lib/include/sw_types.h \
+ /home/shenchun/github/mx6q-collage-openvirtualization/tzone_sdk/include/sw_common_types.h \
+ /home/shenchun/github/mx6q-collage-openvirtualization/tzone_sdk/include/sw_config.h \
+ /home/shenchun/github/mx6q-collage-openvirtualization/tzone_sdk/otzone/src/arch/arm/armv7/include/monitor.h \
+ /home/shenchun/github/mx6q-collage-openvirtualization/tzone_sdk/otzone/src/lib/include/sw_debug.h \
+ /home/shenchun/github/mx6q-collage-openvirtualization/tzone_sdk/otzone/src/arch/arm/armv7/include/cpu_data.h \
+ /home/shenchun/github/mx6q-collage-openvirtualization/tzone_sdk/otzone/src/arch/arm/armv7/include/page_table.h \
+ /home/shenchun/github/mx6q-collage-openvirtualization/tzone_sdk/include/sw_list.h \
+ /home/shenchun/github/mx6q-collage-openvirtualization/tzone_sdk/otzone/src/arch/arm/armv7/include/cpu_asm.h \
+ /home/shenchun/github/mx6q-collage-openvirtualization/tzone_sdk/include/smc_id.h \
+ /home/shenchun/github/mx6q-collage-openvirtualization/tzone_sdk/otzone/src/drivers/imx6/include/sw_board.h \
+ /home/shenchun/github/mx6q-collage-openvirtualization/tzone_sdk/otzone/src/drivers/imx6/include/sw_board_asm.h \
+ /home/shenchun/github/mx6q-collage-openvirtualization/tzone_sdk/otzone/src/arch/arm/armv7/include/sw_mcore.h \
+ /home/shenchun/github/mx6q-collage-openvirtualization/tzone_sdk/otzone/src/core/include/global.h \
+ /home/shenchun/github/mx6q-collage-openvirtualization/tzone_sdk/include/otz_common.h \
+ /home/shenchun/github/mx6q-collage-openvirtualization/tzone_sdk/otzone/src/core/include/sw_timer.h \
+ /home/shenchun/github/mx6q-collage-openvirtualization/tzone_sdk/otzone/src/lib/include/sw_semaphores.h \
+ /home/shenchun/github/mx6q-collage-openvirtualization/tzone_sdk/otzone/src/arch/arm/armv7/include/cpu.h \
+ /home/shenchun/github/mx6q-collage-openvirtualization/tzone_sdk/otzone/src/core/include/task.h \
+ /home/shenchun/github/mx6q-collage-openvirtualization/tzone_sdk/otzone/src/arch/arm/armv7/include/cpu_task.h \
+ /home/shenchun/github/mx6q-collage-openvirtualization/tzone_sdk/otzone/src/lib/include/sw_wait.h \
+ /home/shenchun/github/mx6q-collage-openvirtualization/tzone_sdk/otzone/src/apps/include/dispatcher_task.h \
+ /home/shenchun/github/mx6q-collage-openvirtualization/tzone_sdk/otzone/src/core/include/secure_api.h \
+ /home/shenchun/github/mx6q-collage-openvirtualization/tzone_sdk/otzone/src/lib/include/sw_string_functions.h \
+ /home/shenchun/github/mx6q-collage-openvirtualization/tzone_sdk/otzone/src/lib/include/sw_mem_functions.h \
+ /home/shenchun/github/mx6q-collage-openvirtualization/tzone_sdk/otzone/src/lib/include/sw_buddy.h \
+ /home/shenchun/github/mx6q-collage-openvirtualization/tzone_sdk/otzone/src/arch/arm/armv7/include/elf_loader.h \
+ /home/shenchun/github/mx6q-collage-openvirtualization/tzone_sdk/include/otz_id.h \
+ /home/shenchun/github/mx6q-collage-openvirtualization/tzone_sdk/otzone/src/apps/include/task_control.h \
+ /home/shenchun/github/mx6q-collage-openvirtualization/tzone_sdk/otzone/src/apps/include/echo_task.h \
+ /home/shenchun/github/mx6q-collage-openvirtualization/tzone_sdk/include/otz_app_eg.h \
+ /home/shenchun/github/mx6q-collage-openvirtualization/tzone_sdk/otzone/src/lib/include/sw_io.h \
+ /home/shenchun/github/mx6q-collage-openvirtualization/tzone_sdk/otzone/src/arch/arm/armv7/include/cpu_io.h

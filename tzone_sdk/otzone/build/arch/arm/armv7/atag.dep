@@ -1,0 +1,7 @@
+/home/shenchun/github/mx6q-collage-openvirtualization/tzone_sdk/otzone/build/arch/arm/armv7/atag.o: \
+ /home/shenchun/github/mx6q-collage-openvirtualization/tzone_sdk/otzone/src/arch/arm/armv7/atag.c \
+ /home/shenchun/github/mx6q-collage-openvirtualization/tzone_sdk/otzone/src/lib/include/sw_types.h \
+ /home/shenchun/github/mx6q-collage-openvirtualization/tzone_sdk/include/sw_common_types.h \
+ /home/shenchun/github/mx6q-collage-openvirtualization/tzone_sdk/include/sw_config.h \
+ /home/shenchun/github/mx6q-collage-openvirtualization/tzone_sdk/otzone/src/arch/arm/armv7/include/atag.h \
+ /home/shenchun/github/mx6q-collage-openvirtualization/tzone_sdk/otzone/src/lib/include/sw_string_functions.h

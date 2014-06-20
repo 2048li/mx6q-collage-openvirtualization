@@ -1,0 +1,3 @@
+/home/shenchun/github/mx6q-collage-openvirtualization/tzone_sdk/otzone/build/arch/arm/armv7/sw_syscalls.o: \
+ /home/shenchun/github/mx6q-collage-openvirtualization/tzone_sdk/otzone/src/arch/arm/armv7/sw_syscalls.S \
+ /home/shenchun/github/mx6q-collage-openvirtualization/tzone_sdk/otzone/src/arch/arm/armv7/include/sw_syscalls_id.h

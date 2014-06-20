@@ -196,7 +196,7 @@ u64 timeval_to_clockcycles(timeval_t *time)
 
 /* Minimum clock cycles to be 1 clock period */
     if(clockcycles == 0)
-	    clockcycles = get_clock_period_us(); 
+	    clockcycles = get_clock_period_us();
     return clockcycles;
 }
 

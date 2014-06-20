@@ -383,27 +383,8 @@ __scu_base_reg:
 .global kernel_start
 .global kernel_end	
 kernel_start:
-.incbin "normal.bin";
+@.incbin "normal.bin";
 kernel_end:
-
-#ifdef CONFIG_MULTI_GUESTS_SUPPORT	
-.section normal_image_2, "a"
-.global kernel_2_start
-.global kernel_2_end	
-kernel_2_start:
-.incbin "normal_2.bin";
-kernel_2_end:
-
-#ifndef CONFIG_ZYNQ7_BOARD
-.section initrd_image, "a"
-.global initrd_image_start
-.global initrd_image_end	
-initrd_image_start:
-.incbin "linux2_initrd.bin.gz";
-initrd_image_end:
-#endif
-
-#endif	
 
 .section fs_image, "a"
 .global fs_image_start

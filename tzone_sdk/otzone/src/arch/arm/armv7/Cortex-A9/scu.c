@@ -32,6 +32,8 @@ SCU functions
 
 #define SCU_EN 0x1
 
+void scu_init(void);
+
 /**
  * @brief 
  */
@@ -40,7 +42,9 @@ void scu_init(void)
     /* Set SCU non-secure control register for global timer, private timer and 
      * SCU component registers */
     u32 scu_ns_ctrl;
+#ifdef CONFIG_SW_MULTICORE	
     u32 val;
+#endif
 
     scu_ns_ctrl = 0xfff;
 

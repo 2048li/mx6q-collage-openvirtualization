@@ -45,7 +45,6 @@
 #include <unused.h>
 
 
-
 /**
  * @brief Dispatcher command function to handle the Open session request from
  * non-secure world
@@ -302,7 +301,7 @@ int sa_create_entry_point(int svc_id, sa_config_t *psa_config)
 #endif
 #ifdef CONFIG_SW_ELF_LOADER_SUPPORT
 	if(psa_config->elf_flag == ELF_FLAG)
-		ret = __elf_load(psa_config);
+		ret = 0; //__elf_load(psa_config); ==shenchun temp build
 #endif	
 	return ret;
 

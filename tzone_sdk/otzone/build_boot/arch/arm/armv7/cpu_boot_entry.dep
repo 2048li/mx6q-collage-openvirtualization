@@ -1,0 +1,6 @@
+/home/shenchun/github/mx6q-collage-openvirtualization/tzone_sdk/otzone/build_boot/arch/arm/armv7/cpu_boot_entry.o: \
+ /home/shenchun/github/mx6q-collage-openvirtualization/tzone_sdk/otzone/src/arch/arm/armv7/cpu_boot_entry.S \
+ /home/shenchun/github/mx6q-collage-openvirtualization/tzone_sdk/otzone/src/arch/arm/armv7/include/cpu_asm.h \
+ /home/shenchun/github/mx6q-collage-openvirtualization/tzone_sdk/include/smc_id.h \
+ /home/shenchun/github/mx6q-collage-openvirtualization/tzone_sdk/otzone/src/drivers/imx6/include/sw_board_asm.h \
+ /home/shenchun/github/mx6q-collage-openvirtualization/tzone_sdk/otzone/src/arch/arm/armv7/Cortex-A9/include/sw_platform_asm.h

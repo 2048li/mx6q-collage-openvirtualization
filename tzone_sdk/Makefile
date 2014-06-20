@@ -35,39 +35,16 @@ export PACKAGE_BUILD_DIR:=$(PACKAGE_DIR)/build
 export CONFIG_PACKAGE_FILE:=$(PACKAGE_DIR)/config.package
 export ANDROID_PATH:= /home/pub/ov_android/android
 
-ifeq ($(CONFIG_ANDROID_GUEST),y)
-export KDIR := $(ANDROID_PATH)/kernel
-else	
 export KDIR := $(SDK_PATH)/../otz_linux/linux-otz
-endif
-ifeq ($(CONFIG_MULTI_GUESTS_SUPPORT),y)
-export KDIR2 := $(SDK_PATH)/../otz_linux/linux-otz-2
-endif
-
-ifeq ($(CONFIG_ANDROID_GUEST),y)
-export KERNEL_BUILT_DIR := $(ANDROID_PATH)/out/target/product/vexpress_rtsm/obj/kernel
-else	
 export KERNEL_BUILT_DIR := $(SDK_PATH)/../otz_linux/linux-otz
-endif
-ifeq ($(CONFIG_MULTI_GUESTS_SUPPORT),y)
-export KERNEL_BUILT_DIR_2 := $(SDK_PATH)/../otz_linux/linux-otz-2
-endif
 
-ifeq ($(CONFIG_ANDROID_GUEST),y)
-NS_IMAGE := $(ANDROID_PATH)/out/target/product/vexpress_rtsm/boot/linux-system-A15.axf
-else	
 NS_IMAGE := $(SDK_PATH)/../otz_linux/boot/RTSM/normal.elf
-endif
-ifeq ($(CONFIG_MULTI_GUESTS_SUPPORT),y)
-NS_IMAGE_2 := $(SDK_PATH)/../otz_linux/boot_guest2/RTSM/normal.elf
-INITRD_IMAGE := $(SDK_PATH)/../otz_linux/linux2_initrd.bin.gz
-endif
 ROOT_FILE_SYSTEM_IMAGE := $(SDK_PATH)/../otz_linux/armv5t_min_EB_V6_V7.image 
 
 -include $(CONFIG_PACKAGE_FILE)
 
-export BOARD:= VE
-export ARM_CPU:= CORTEX_A15
+export BOARD:= imx6
+export ARM_CPU:= CORTEX_A9
 export ARM_ARCH:= ARMV7
 
 ifeq ($(ARM_CPU), CORTEX_A15)
@@ -75,34 +52,17 @@ ifneq ($(CONFIG_ANDROID_GUEST), y)
 export OTZONE_ASYNC_NOTIFY_SUPPORT:= y
 endif
 endif
-
+export OTZONE_ASYNC_NOTIFY_SUPPORT:= y
 
 .PHONY: all
 
-ifeq ($(CONFIG_ANDROID_GUEST),y)
-all:	
-else
-ifneq ($(BOARD), zynq7)
-all:	$(ROOT_FILE_SYSTEM_IMAGE)
-else
 all:
-endif
-endif
-ifeq ($(NON_SECURE_BOOTWRAPPER_SUPPORT),y)
-	cp -f $(NS_IMAGE) $(SDK_PATH)/bin/normal.elf;
-else
-	cp -f $(NS_IMAGE) $(SDK_PATH)/bin/normal.bin;
-endif
-ifeq ($(CONFIG_MULTI_GUESTS_SUPPORT),y)
 
 ifeq ($(NON_SECURE_BOOTWRAPPER_SUPPORT),y)
-	cp -f $(NS_IMAGE_2) $(SDK_PATH)/bin/normal_2.elf;
+	$(warning =====create normal.elf here)
+#	cp -f $(NS_IMAGE) $(SDK_PATH)/bin/normal.elf;
 else
-	cp -f $(NS_IMAGE_2) $(SDK_PATH)/bin/normal_2.bin;
-endif
-ifneq ($(BOARD), zynq7)
-	cp -f $(INITRD_IMAGE) $(SDK_PATH)/otzone/linux2_initrd.bin.gz;
-endif
+	cp -f $(NS_IMAGE) $(SDK_PATH)/bin/normal.bin;
 endif
 
 ifneq ($(CONFIG_ANDROID_GUEST),y)
@@ -115,191 +75,12 @@ endif
 	cp -f bin/mmc_fs otzone/mmc_fs
 	
 ifneq ($(BOARD), zynq7)
-ifeq ($(CONFIG_MULTI_GUESTS_SUPPORT),y)
-ifneq ($(CONFIG_ANDROID_GUEST),y)
-	gunzip $(SDK_PATH)/otzone/linux2_initrd.bin.gz;
 
-	if [ -f ${SDK_PATH}/bin/otzapp.elf ]; then \
-	mkdir -p /tmp/mnt; \
-	sudo mount -o loop $(SDK_PATH)/otzone/linux2_initrd.bin /tmp/mnt; \
-	mkdir -p /tmp/mnt/bin; \
-	sudo cp ${SDK_PATH}/bin/otzapp.elf /tmp/mnt/bin; \
-	sudo chmod 755 /tmp/mnt/bin/otzapp.elf;\
-	sleep 1;\
-	sudo umount /tmp/mnt; \
-	fi
-
-	if [ -f ${SDK_PATH}/bin/otz_tee_app.elf ]; then \
-	mkdir -p /tmp/mnt; \
-	sudo mount -o loop $(SDK_PATH)/otzone/linux2_initrd.bin /tmp/mnt; \
-	mkdir -p /tmp/mnt/bin; \
-	sudo cp ${SDK_PATH}/bin/otz_tee_app.elf /tmp/mnt/bin; \
-	sudo chmod 755 /tmp/mnt/bin/otz_tee_app.elf;\
-	sleep 1;\
-	sudo umount /tmp/mnt; \
-	fi
-
-	if [ -f ${SDK_PATH}/bin/otz_boot_ack.elf ]; then \
-        mkdir -p /tmp/mnt; \
-        sudo mount -o loop $(ROOT_FILE_SYSTEM_IMAGE) /tmp/mnt; \
-        sudo cp ${SDK_PATH}/bin/otz_boot_ack.elf /tmp/mnt/bin; \
-        sudo chmod 755 /tmp/mnt/bin/otz_boot_ack.elf;\
-        sleep 1;\
-        sudo umount /tmp/mnt; \
-        fi
-
-	if [ -f ${SDK_PATH}/bin/otz_virtual_keyboard.elf ]; then \
-	mkdir -p /tmp/mnt; \
-	sudo mount -o loop $(ROOT_FILE_SYSTEM_IMAGE) /tmp/mnt; \
-	sudo cp ${SDK_PATH}/bin/otz_virtual_keyboard.elf /tmp/mnt/bin; \
-	sudo chmod 755 /tmp/mnt/bin/otz_virtual_keyboard.elf;\
-	sleep 1;\
-	sudo umount /tmp/mnt; \
-	fi
-
-	if [ -f ${SDK_PATH}/bin/otz_neon_app.elf ]; then \
-        mkdir -p /tmp/mnt; \
-        sudo mount -o loop $(ROOT_FILE_SYSTEM_IMAGE) /tmp/mnt; \
-        sudo cp ${SDK_PATH}/bin/otz_neon_app.elf /tmp/mnt/bin; \
-        sudo chmod 755 /tmp/mnt/bin/otz_neon_app.elf;\
-        sleep 1;\
-        sudo umount /tmp/mnt; \
-        fi
-
-	if [ -f ${SDK_PATH}/bin/otz_client_2.ko ]; then \
-	mkdir -p /tmp/mnt ;\
-	sudo mount -o loop $(SDK_PATH)/otzone/linux2_initrd.bin /tmp/mnt; \
-	sudo cp ${SDK_PATH}/bin/otz_client_2.ko /tmp/mnt/; \
-	sleep 1;\
-	sudo umount /tmp/mnt; \
-	fi
-
-	if [ -f ${SDK_PATH}/lib/libotzapi.so ]; then \
-	mkdir -p /tmp/mnt; \
-	sudo mount -o loop $(SDK_PATH)/otzone/linux2_initrd.bin /tmp/mnt; \
-	mkdir -p /tmp/mnt/usr; \
-	mkdir -p /tmp/mnt/usr/lib; \
-	sudo cp ${SDK_PATH}/lib/libotzapi.so /tmp/mnt/usr/lib; \
-	sleep 1;\
-	sudo umount /tmp/mnt; \
-	fi
-	
-	if [ -f ${SDK_PATH}/bin/otz_boot_ack.elf ]; then \
-	mkdir -p /tmp/mnt; \
-	sudo mount -o loop $(ROOT_FILE_SYSTEM_IMAGE) /tmp/mnt; \
-	sudo cp ${SDK_PATH}/bin/otz_boot_ack.elf /tmp/mnt/bin; \
-	sudo chmod 755 /tmp/mnt/bin/otz_boot_ack.elf;\
-	sleep 1;\
-	sudo umount /tmp/mnt; \
-	fi
-
-	if [ -f ${SDK_PATH}/bin/otz_virtual_keyboard.elf ]; then \
-	mkdir -p /tmp/mnt; \
-	sudo mount -o loop $(ROOT_FILE_SYSTEM_IMAGE) /tmp/mnt; \
-	sudo cp ${SDK_PATH}/bin/otz_virtual_keyboard.elf /tmp/mnt/bin; \
-	sudo chmod 755 /tmp/mnt/bin/otz_virtual_keyboard.elf;\
-	sleep 1;\
-	sudo umount /tmp/mnt; \
-	fi
-
-	sleep 1;
-	gzip $(SDK_PATH)/otzone/linux2_initrd.bin;
-endif
-endif
 endif
 
-ifeq ($(CONFIG_ANDROID_GUEST),y)
-ifeq ($(BOARD),VE)
-	if [ -f ${SDK_PATH}/bin/otz_client.ko ]; then \
-	mkdir -p /tmp/mnt ;\
-	tar -xjf $(ANDROID_PATH)/out/target/product/vexpress_rtsm/system.tar.bz2 -C /tmp/mnt; \
-	sudo cp ${SDK_PATH}/bin/otz_client.ko /tmp/mnt/system/modules/; \
-	cd /tmp/mnt; \
-	tar -cjf $(ANDROID_PATH)/out/target/product/vexpress_rtsm/system.tar.bz2 system/; \
-	sleep 1;\
-	rm -rf system; \
-	cd $(SDK_PATH);\
-	fi
-endif
-endif
-	
 
 	$(MAKE) -C $(SDK_PATH)/otzone
 	rm -rf otzone/mmc_fs
-
-ifneq ($(BOARD), zynq7)
-ifneq ($(CONFIG_ANDROID_GUEST),y)
-	if [ -f ${SDK_PATH}/bin/otzapp.elf ]; then \
-	mkdir -p /tmp/mnt; \
-	sudo mount -o loop $(ROOT_FILE_SYSTEM_IMAGE) /tmp/mnt; \
-	sudo cp ${SDK_PATH}/bin/otzapp.elf /tmp/mnt/bin; \
-	sudo chmod 755 /tmp/mnt/bin/otzapp.elf;\
-	sleep 1;\
-	sudo umount /tmp/mnt; \
-	fi
-
-	if [ -f ${SDK_PATH}/bin/otz_tee_app.elf ]; then \
-	mkdir -p /tmp/mnt; \
-	sudo mount -o loop $(ROOT_FILE_SYSTEM_IMAGE) /tmp/mnt; \
-	sudo cp ${SDK_PATH}/bin/otz_tee_app.elf /tmp/mnt/bin; \
-	sudo chmod 755 /tmp/mnt/bin/otz_tee_app.elf;\
-	sleep 1;\
-	sudo umount /tmp/mnt; \
-	fi
-
-	if [ -f ${SDK_PATH}/bin/otz_boot_ack.elf ]; then \
-	mkdir -p /tmp/mnt; \
-	sudo mount -o loop $(ROOT_FILE_SYSTEM_IMAGE) /tmp/mnt; \
-	sudo cp ${SDK_PATH}/bin/otz_boot_ack.elf /tmp/mnt/bin; \
-	sudo chmod 755 /tmp/mnt/bin/otz_boot_ack.elf;\
-	sleep 1;\
-	sudo umount /tmp/mnt; \
-	fi
-
-	if [ -f ${SDK_PATH}/bin/otz_virtual_keyboard.elf ]; then \
-	mkdir -p /tmp/mnt; \
-	sudo mount -o loop $(ROOT_FILE_SYSTEM_IMAGE) /tmp/mnt; \
-	sudo cp ${SDK_PATH}/bin/otz_virtual_keyboard.elf /tmp/mnt/bin; \
-	sudo chmod 755 /tmp/mnt/bin/otz_virtual_keyboard.elf;\
-	sleep 1;\
-	sudo umount /tmp/mnt; \
-	fi
-
-	if [ -f ${SDK_PATH}/bin/otz_play_media.elf ]; then \
-	mkdir -p /tmp/mnt; \
-	sudo mount -o loop $(ROOT_FILE_SYSTEM_IMAGE) /tmp/mnt; \
-	sudo cp ${SDK_PATH}/bin/otz_play_media.elf /tmp/mnt/bin; \
-	sudo chmod 755 /tmp/mnt/bin/otz_play_media.elf;\
-	sleep 1;\
-	sudo umount /tmp/mnt; \
-	fi
-
-	if [ -f ${SDK_PATH}/bin/otz_neon_app.elf ]; then \
-        mkdir -p /tmp/mnt; \
-        sudo mount -o loop $(ROOT_FILE_SYSTEM_IMAGE) /tmp/mnt; \
-        sudo cp ${SDK_PATH}/bin/otz_neon_app.elf /tmp/mnt/bin; \
-        sudo chmod 755 /tmp/mnt/bin/otz_neon_app.elf;\
-        sleep 1;\
-        sudo umount /tmp/mnt; \
-        fi
-
-	if [ -f ${SDK_PATH}/bin/otz_client.ko ]; then \
-	mkdir -p /tmp/mnt ;\
-	sudo mount -o loop $(ROOT_FILE_SYSTEM_IMAGE) /tmp/mnt; \
-	sudo cp ${SDK_PATH}/bin/otz_client.ko /tmp/mnt/; \
-	sleep 1;\
-	sudo umount /tmp/mnt; \
-	fi
-
-	if [ -f ${SDK_PATH}/lib/libotzapi.so ]; then \
-	mkdir -p /tmp/mnt; \
-	sudo mount -o loop $(ROOT_FILE_SYSTEM_IMAGE) /tmp/mnt; \
-	sudo cp ${SDK_PATH}/lib/libotzapi.so /tmp/mnt/usr/lib; \
-	sleep 1;\
-	sudo umount /tmp/mnt; \
-	fi
-endif
-endif
 
 boot:
 	$(MAKE) -C $(SDK_PATH)/otzone boot

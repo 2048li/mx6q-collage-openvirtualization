@@ -14,10 +14,13 @@ all:
 	cp -R $(SDK_PATH)/../package/src src/package/; \
 	fi
 
+	$(warning =====otzone step1)
 	$(MAKE) -f Makefile.in modules
+	$(warning =====otzone step2)
 	$(MAKE) -f Makefile.in clean
-	
+	$(warning =====otzone step3)
 	$(MAKE) -f Makefile.in
+	$(warning =====otzone step4)
 	$(MAKE) -f Makefile.boot
 ifeq ($(ENABLE_LIBCRYPT), y)	
 	$(MAKE) -f Makefile.crypto modules
@@ -25,10 +28,11 @@ ifeq ($(ENABLE_LIBCRYPT), y)
 	$(MAKE) -f Makefile.crypto
 endif
 #	$(MAKE) -f Makefile.libc
-
+	$(warning =====otzone step5)
 	rm -r -f src/package
 
 boot:
+	$(warning =====otzone step6)
 	$(MAKE) -f Makefile.boot
 
 .PHONY: clean
